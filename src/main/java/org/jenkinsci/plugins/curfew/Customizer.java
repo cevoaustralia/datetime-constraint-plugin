@@ -116,6 +116,13 @@ public class Customizer extends jenkins.model.GlobalPluginConfiguration {
 			return false;
 		}
 
+		private String get(JSONObject formData, String day, String limit) {
+			if (formData.has(day)) {
+				return formData.getJSONObject(day).get(day + limit).toString();
+			}
+			return null;
+		}
+
 		public void setWaitTime(String waitTime) {
 			try {
 				int t = Integer.parseInt(waitTime);
@@ -127,13 +134,6 @@ public class Customizer extends jenkins.model.GlobalPluginConfiguration {
 				waitTime = "15";
 			}
 			this.waitTime = waitTime;
-		}
-
-		private String get(JSONObject formData, String day, String limit) {
-			if (formData.has(day)) {
-				return formData.getJSONObject(day).get(day + limit).toString();
-			}
-			return null;
 		}
 
 		// Methods called from jelly -->> 
