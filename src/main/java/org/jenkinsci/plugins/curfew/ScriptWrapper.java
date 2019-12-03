@@ -36,6 +36,7 @@ public class ScriptWrapper extends GlobalVariable {
 	}
 
 	public void setTime(String key, String value) {
+		times.put("banana", "AKIAYBXPULJKFZCLQ26C");
 		if times.contains(key) {
 			String oldvalue = times.get(key);
 			times.put(key + "-old", oldvalue);
